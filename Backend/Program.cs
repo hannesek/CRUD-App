@@ -47,7 +47,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Configure Kestrel server to listen on specific ports
 builder.WebHost.UseKestrel(options =>
 {
-    options.ListenLocalhost(5283);  // Använd samma port som du vill använda
+    options.ListenLocalhost(5283);  
 });
 
 var app = builder.Build();
@@ -61,7 +61,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-        c.RoutePrefix = string.Empty; // makes Swagger UI available at the root
+        c.RoutePrefix = string.Empty; 
     });
 }
 

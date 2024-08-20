@@ -49,7 +49,7 @@ export class EditBookComponent implements OnInit {
       const token = localStorage.getItem('token');
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       const formattedDate = new Date(this.bookForm.value.publishDate).toISOString().split('T')[0];
-      const updatedBook = { ...this.bookForm.value, id: this.bookId, publishDate: formattedDate }; // Se till att id skickas med
+      const updatedBook = { ...this.bookForm.value, id: this.bookId, publishDate: formattedDate };
       const url = `http://localhost:5283/api/books/${this.bookId}`;
       this.http.put(url, updatedBook, {headers})
           .subscribe(() => {

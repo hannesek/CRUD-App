@@ -18,8 +18,8 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public IActionResult Login([FromBody] LoginModel login)
     {
-        // Här bör du kontrollera användarens uppgifter mot databasen eller någon annan lagring.
-        if (login.Username == "test" && login.Password == "password") // Exempel, ersätt med riktig verifiering
+
+        if (login.Username == "test" && login.Password == "password") 
         {
             var token = GenerateJwtToken(login.Username);
             return Ok(new { token });
