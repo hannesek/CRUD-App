@@ -1,0 +1,29 @@
+<div class="container text-center">
+  <h2>Book List</h2>
+
+  <!-- Add Book Button -->
+  <a class="add-book-btn" (click)="navigateToAddBook()">Add Book</a>
+
+  <!-- Display the list of books -->
+  <div *ngIf="books.length > 0; else noBooks">
+    <ul>
+      <li *ngFor="let book of books">
+        <div>
+          <span>{{ book.title }} by {{ book.author }}</span>
+          <span>{{ formatDate(book.publishDate) }}</span>
+        </div>
+        <button (click)="editBook(book.id)">
+          <i class="fa fa-pencil"></i> Edit
+        </button>
+        <button (click)="deleteBook(book.id)">
+          <i class="fa fa-trash"></i> Delete
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- If no books are available -->
+  <ng-template #noBooks>
+    <p>No books available.</p>
+  </ng-template>
+</div>

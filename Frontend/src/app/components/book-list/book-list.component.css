@@ -1,0 +1,116 @@
+/* Book List Styles */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.text-center h2,
+.text-center .add-book-btn {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+ul {
+  padding: 0;
+}
+
+ul li {
+  background-color: #e7e7e7;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.no-books p {
+  color: #999;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Styling for the buttons */
+button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button .fa {
+  margin-right: 5px;
+}
+
+ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul li button {
+  flex-grow: 0;
+}
+
+ul li div {
+  flex-grow: 1;
+}
+
+ul li div span {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.add-book-btn {
+  display: inline-block;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.add-book-btn:hover {
+  background-color: #45a049;
+}
+
+
+@media (max-width: 767.98px) {
+  .container {
+    padding: 10px;
+  }
+
+  button, .add-book-btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  ul li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  ul li button {
+    margin-top: 5px;
+    width: 100%;
+  }
+}
+
