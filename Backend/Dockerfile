@@ -9,8 +9,8 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Kopiera projektfiler och återställa eventuella beroenden
-COPY ["Backend/Backend.csproj", "Backend/"]
-RUN dotnet restore "Backend/Backend.csproj"
+COPY Backend/Backend.csproj .
+RUN dotnet restore "./Backend.csproj"
 
 # Bygg projektet
 COPY . .
