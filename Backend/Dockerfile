@@ -8,20 +8,20 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Kopiera allt innehåll från Backend-mappen till Docker
-COPY ./Backend/ .
-
-# Återställ beroenden baserat på Backend.csproj
-RUN dotnet restore "Backend.csproj"
+# Kopiera projektfiler och återställa eventuella beroenden
+COPY ["Backend/Backend.csproj", "Backend/"]
+RUN dotnet restore "Backend/Backend.csproj"
 
 # Bygg projektet
+COPY . .
+WORKDIR "/src/Backend"
 RUN dotnet build "Backend.csproj" -c Release -o /app/build
 
 # Publicera applikationen
 RUN dotnet publish "Backend.csproj" -c Release -o /app/publish
 
-# Använd en runtime-bild och kopiera den publicerade applikationen
+# Konfigurera basbilden för att köra applikationen
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=build /app/publish .
 ENTRYPOINT ["dotnet", "Backend.dll"]
